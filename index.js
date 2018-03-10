@@ -95,7 +95,7 @@ bot.on('message', message => {
         if(message.content.startsWith(prefix + "prank")){
               let args = message.content.split(` `).slice(1);
               message.delete()
-              console.log("Say avec succès !")
+              console.log("Prank avec succès !" + `${message.author.username}`)
               if (!args){
               args = null;
                }
