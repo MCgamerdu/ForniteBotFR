@@ -18,6 +18,10 @@ bot.on('message', message => {
   if (message.content === prefix + "id"){
     message.channel.sendMessage(`**${message.author.username} **` + "Voici ton ID: " + `__${message.author.id}__`);
   }
+    
+        if (message.content === "Bonjour"){
+        message.reply("Bien le bonjour ! :wink:")
+    }
   
     if (message.content === prefix + "help"){
         message.delete()
