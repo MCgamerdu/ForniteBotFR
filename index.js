@@ -25,6 +25,7 @@ bot.on('message', message => {
   
     if (message.content === prefix + "help"){
         message.delete()
+        console.log("Help")
         message.channel.sendMessage(`__${message.author.username} Les commandes disponibles sont envoyer en MP :wink:__`)
         var embed = new Discord.RichEmbed()
           .setColor("0xDBA901")
