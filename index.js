@@ -156,6 +156,7 @@ bot.on('message', message => {
                   }).catch(console.error)
                 }})
 
+bot.on('message', message => {
         if (message.content === prefix + "infodiscord") {
                 var infodiscord = new Discord.RichEmbed()
             .setColor("0x0000FF")
@@ -166,4 +167,4 @@ bot.on('message', message => {
             .addField("Utilisateurs sur le discord", message.guild.memberCount)
             message.channel.sendEmbed(infodiscord)
             
-        }
+    }})
