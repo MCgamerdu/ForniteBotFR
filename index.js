@@ -156,15 +156,14 @@ bot.on('message', message => {
                   }).catch(console.error)
                 }})
 
-    if(message.content === prefix + "infodiscord")
-        var embed = new Discord.RichEmbed()
-        .setDescription("Information Du discord")
-        .addField("Nom du discord", message.guild.name)
-        .addField("Crée le", message.guild.createdAt)
-        .addField("Tu as rejoin le", message.member.joinedAt)
-        .addField("Utilisateurs sur le discord", message.guild.memberCount)
-        .setColor("0x0000FF")
-    message.channel.sendEmbed(embed)
-
-
-      
+                if (message.content === prefix + "infodiscord"){
+                    var embed = new Discord.RichEmbed()
+                    .setColor("0x0000FF")
+                    .setDescription("Information Du discord")
+                    .addField("Nom du discord", message.guild.name)
+                    .addField("Crée le", message.guild.createdAt)
+                    .addField("Tu as rejoin le", message.member.joinedAt)
+                    .addField("Utilisateurs sur le discord", message.guild.memberCount)
+                message.channel.sendEmbed(embed)
+                        
+                }
