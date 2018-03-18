@@ -34,6 +34,7 @@ bot.on('message', message => {
           .addField("**/help**", "Affichez les commandes disponibles")
           .addField("**/botinfo**", "Informations du bot")
           .addField("**/yt**", "Affichez les Youtubeurs")
+          .addField("**/infodiscord**", "Affichez les imformations du serveur discord")
           message.author.sendEmbed(embed);
     }
 
