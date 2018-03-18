@@ -154,4 +154,17 @@ bot.on('message', message => {
                       message.reply(`${member.user.username} a été banni avec succès.`).catch(console.error);
                       message.guild.channels.find("name", "general").send(`**${member.user.username}** a été banni du discord par **${message.author.username}**`)
                   }).catch(console.error)
-          }})    
+                }})
+
+    if(message.content === prefix + "infodiscord")
+        var embed = new Discord.RichEmbed()
+        .setDescription("Information Du discord")
+        .addField("Nom du discord", message.guild.name)
+        .addField("Crée le", message.guild.createdAt)
+        .addField("Tu as rejoin le", message.member.joinedAt)
+        .addField("Utilisateurs sur le discord", message.guild.memberCount)
+        .setColor("0x0000FF")
+    message.channel.sendEmbed(embed)
+
+
+      
