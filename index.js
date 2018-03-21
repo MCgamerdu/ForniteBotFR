@@ -169,22 +169,19 @@ bot.on('message', message => {
             message.channel.sendEmbed(infodiscord)
             
     }})
-    if (message.content.startsWith(prefix + "sondage")) {
-        let modRole = message.guild.roles.find("name", "StaffMod");
-        if(!message.member.roles.has(modRole.id)) {
-            return message.reply("Tu n'as pas la permission de faire cette commande.").catch(console.error);
-        }
-        let args = message.content.split(" ").slice(1);
-        let thingToEcho = args.join(" ")
-        var embed = new Discord.RichEmbed()
-            .setDescription("Sondage")
-            .addField(thingToEcho, "Répondez avec :white_check_mark: ou :x:")
-            .setcolor("0xB40404")
-            .setTimestamp()
-        message.guild.channels.find("name", "sondage").sendEmbed(embed)
-        .then(function (message) {
-            message.react("✅")
-            message.react("❌")
-        }).catch(function() {
-        });
+if (message.content.startsWith(prefix + "sondage")) {
+                if(!message.guild) return;
+                if(!message.member.roles.has('id du rôle')) return message.channel.send("Cette commande est réservée à L'équipe Food's");
+                let args = message.content.split(" ").slice(1).join(" ");
+                if(!args) return message.channel.send("Il n'y a pas de sondage !");
+                var embed = new Discord.RichEmbed();
+                embed
+                  .setColor('#' + (Math.random() * 0xFFFFFF << 0).toString(16))
+                  .addField("Nouveau Sondage :","\n\n**Sujet : **" + args,"\n\nRépondre avec :thumbsup: ou :thumbsdown:")
+                  .setFooter(":copyright: Food's",  bot.user.displayAvatarURL);
+                  message.channel.send(embed)
+                  .then(function (message) {
+                    message.react(':thumbsup:');
+                    message.react(':thumbsdown:');        
+                            });
     }
