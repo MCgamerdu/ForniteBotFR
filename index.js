@@ -169,19 +169,18 @@ bot.on('message', message => {
             message.channel.sendEmbed(infodiscord)
             
     }})
-
-        if (message.content.startsWith(prefix + "sondage")) {
-                if(!message.guild) return;
-                if(!message.member.roles.has('426109987073294336')) return message.channel.send("Cette commande est réservée à L'équipe du staff");
-                let args = message.content.split(" ").slice(1).join(" ");
-                if(!args) return message.channel.send("Il n'y a pas de sondage !");
-                var embed = new Discord.RichEmbed(embed);
-                    .setColor("0xDF7401")
-                    .addField("Nouveau Sondage :","\n\n**Sujet : **" + args,"\n\nRépondez avec :white_check_mark: ou :x:")
-                    .setFooter("L'équipe du staff",  bot.user.displayAvatarURL);
-                  message.channel.send(embed)
-                  .then(function (message) {
-                    message.react('✅');
-                    message.react('❌');        
-                            });
-                        }
+    if (message.content.startsWith(prefix + "sondage")) {
+        if(!message.guild) return;
+        if(!message.member.roles.has('426109987073294336')) return message.channel.send("Cette commande est réservée à L'équipe du staff");
+        let args = message.content.split(" ").slice(1).join(" ");
+        if(!args) return message.channel.send("Il n'y a pas de sondage !");
+        var embed = new Discord.RichEmbed()
+            .setColor("0xDF7401")
+            .addField("Nouveau Sondage :","\n\n**Sujet : **" + args,"\n\nRépondez avec :white_check_mark: ou :x:")
+            .setFooter("L'équipe du staff",  bot.user.displayAvatarURL);
+            message.channel.sendEmbed(embed)  
+            .then(function (message) {
+            message.react('✅');
+            message.react('❌');        
+                    });
+                }
